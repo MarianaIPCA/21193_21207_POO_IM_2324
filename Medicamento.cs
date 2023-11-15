@@ -1,8 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+*	<copyright file="Medicamento.cs" company="MarianaIPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Mariana e Gonçalo</author>
+*   <date>15/10/2023 03:17:50 PM</date>
+*	<description> Descreve um medicamento </description>
+**/
+
+using System;
+using System.Web;
 
 public enum TipoMedi
 {
@@ -15,7 +21,7 @@ namespace _21193_21207
     {
         #region Atributos
 
-        private int nome;
+        private string nome;
         private TipoMedi tipo;
         DateTime dataValidade;
 
@@ -25,9 +31,38 @@ namespace _21193_21207
 
         #region Construtores
 
+        public Medicamento()
+        {
+            nome = "";
+            tipo = TipoMedi.Analgesico;
+            dataValidade = DateTime.Now;
+        }
+
+        public Medicamento(string nomeMed, TipoMedi t)
+        {
+            nome = nomeMed;
+            tipo = t;
+        }
 
         #endregion
 
+        #region Propriedades
+
+        public string Nome
+        {
+            set { nome = value; }
+            get { return nome; }
+        }
+
+        public TipoMedi Tipo
+        { 
+            get { return tipo; } 
+            set { tipo = value; }
+        }
+
+        #endregion
+        
+        
         #endregion
     }
 }

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace _21193_21207
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
+            Medicamento m1= new Medicamento();
+            Console.WriteLine("");
         }
     }
 }

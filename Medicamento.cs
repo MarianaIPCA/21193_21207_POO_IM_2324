@@ -15,7 +15,7 @@ public enum TipoMedi
     Analgesico,
     Antibiotico,
     AntiInflamatorio,
-    Antialergico
+    AntiAlergico
 
 }
 namespace _21193_21207
@@ -26,6 +26,7 @@ namespace _21193_21207
 
         private string nome;
         private TipoMedi tipo;
+        public int id;
         private DateTime dataValidade;
 
         #endregion
@@ -34,17 +35,17 @@ namespace _21193_21207
 
         #region Construtores
 
-        public Medicamento(string nomeMed, TipoMedi t, DateTime data)  
+        public Medicamento(string nomeMed, TipoMedi t,int idMed, DateTime dv)  
         {
             this.nome = nomeMed;
             this.tipo = t;
-            this.dataValidade = data;
+            this.dataValidade = dv;
         }
 
         #endregion
 
-        #region Propriedades
-
+        #region Propriedades 
+        //as propriedades conseguem mostrar a informação privada dos atributos de uma classe
         public string Nome
         {
             set { nome = value; }
@@ -53,14 +54,15 @@ namespace _21193_21207
 
         public TipoMedi Tipo
         { 
-            get { return tipo; } 
             set { tipo = value; }
+            get { return tipo; } 
         }
 
         //verificar se está correto
-        public DateTime date
+        public DateTime dataValidade
         {
-            set { dataValidade = value; }
+            set { data = value; }
+            get { return data; }
         }
 
         #endregion

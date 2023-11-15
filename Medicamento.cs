@@ -47,7 +47,7 @@ namespace _21193_21207
 
         #region Propriedades 
         //as propriedades conseguem mostrar a informação privada dos atributos de uma classe
-        public string Nome
+        public string NomeMedicamento
         {
             set { nome = value; }
             get { return nome; }
@@ -72,8 +72,13 @@ namespace _21193_21207
         }
 
         #endregion
-        
-        
+
+        #region Overrides
+        #endregion
+
+        #region OutrosMetodos
+        #endregion
+
         #endregion
     }
 }

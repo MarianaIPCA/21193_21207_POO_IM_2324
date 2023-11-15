@@ -8,9 +8,9 @@
     </TypeIdentifier>
   </Class>
   <Enum Name="TipoMedicamentos">
-    <Position X="2.25" Y="0.5" Width="1.75" />
+    <Position X="2.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAAAAAEAAAACAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACAAAAAAAAAgAAAACAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Medicamento.cs</FileName>
     </TypeIdentifier>
   </Enum>

@@ -34,14 +34,7 @@ namespace _21193_21207
 
         #region Construtores
 
-        /*public Medicamento()
-        {
-            nome = "";
-            tipo = TipoMedi.Analgesico;
-            dataValidade = DateTime.Now;
-        }*/
-
-        public Medicamento(string nomeMed, TipoMedi t,DateTime data)  
+        public Medicamento(string nomeMed, TipoMedi t, DateTime data)  
         {
             this.nome = nomeMed;
             this.tipo = t;

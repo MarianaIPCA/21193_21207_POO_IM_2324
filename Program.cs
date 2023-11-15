@@ -10,7 +10,8 @@ namespace _21193_21207
     {
         static void Main(string[] args)
         {
-            Medicamento m1= new Medicamento();
+            Medicamento m1 = new Medicamento("");
+
             Console.WriteLine("");
         }
     }

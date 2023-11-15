@@ -10,12 +10,12 @@
 using System;
 using System.Web;
 
-public enum TipoMedi
+public enum TipoMedicamentos
 {
     Analgesico,
     Antibiotico,
     AntiInflamatorio,
-    AntiAlergico
+    AntiHistaminico
 
 }
 namespace _21193_21207
@@ -25,8 +25,8 @@ namespace _21193_21207
         #region Atributos
 
         private string nome;
-        private TipoMedi tipo;
-        public int id;
+        private TipoMedicamentos tipo;
+        private int id;
         private DateTime dataValidade;
 
         #endregion
@@ -35,10 +35,11 @@ namespace _21193_21207
 
         #region Construtores
 
-        public Medicamento(string nomeMed, TipoMedi t,int idMed, DateTime dv)  
+        public Medicamento(string nomeMed, TipoMedicamentos t,int idMed, DateTime dv)  
         {
             this.nome = nomeMed;
             this.tipo = t;
+            this.id = idMed;
             this.dataValidade = dv;
         }
 
@@ -52,17 +53,22 @@ namespace _21193_21207
             get { return nome; }
         }
 
-        public TipoMedi Tipo
+        public TipoMedicamentos Tipo
         { 
             set { tipo = value; }
             get { return tipo; } 
         }
 
-        //verificar se está correto
-        public DateTime dataValidade
+        public int Id
         {
-            set { data = value; }
-            get { return data; }
+            set { id = value; }
+            get { return id; }
+        }
+
+        public DateTime DataValidade
+        {
+            set { dataValidade = value; }
+            get { return dataValidade; }
         }
 
         #endregion

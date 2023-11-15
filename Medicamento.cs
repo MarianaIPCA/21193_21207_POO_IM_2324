@@ -64,6 +64,12 @@ namespace _21193_21207
             set { tipo = value; }
         }
 
+        //verificar se está correto
+        public DateTime date
+        {
+            set { dataValidade = value; }
+        }
+
         #endregion
         
         

@@ -13,7 +13,10 @@ using System.Web;
 public enum TipoMedi
 {
     Analgesico,
-    Antibiotico
+    Antibiotico,
+    AntiInflamatorio,
+    Antialergico
+
 }
 namespace _21193_21207
 {
@@ -23,7 +26,7 @@ namespace _21193_21207
 
         private string nome;
         private TipoMedi tipo;
-        DateTime dataValidade;
+        private DateTime dataValidade;
 
         #endregion
 
@@ -31,17 +34,18 @@ namespace _21193_21207
 
         #region Construtores
 
-        public Medicamento()
+        /*public Medicamento()
         {
             nome = "";
             tipo = TipoMedi.Analgesico;
             dataValidade = DateTime.Now;
-        }
+        }*/
 
-        public Medicamento(string nomeMed, TipoMedi t)
+        public Medicamento(string nomeMed, TipoMedi t,DateTime data)  
         {
-            nome = nomeMed;
-            tipo = t;
+            this.nome = nomeMed;
+            this.tipo = t;
+            this.dataValidade = data;
         }
 
         #endregion

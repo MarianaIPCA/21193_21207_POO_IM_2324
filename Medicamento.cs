@@ -25,8 +25,7 @@ namespace _21193_21207
         #region Atributos
 
         private string nome;
-        private TipoMedicamentos tipo;
-        private int id;
+        private TipoMedicamentos tipo;        
         private DateTime dataValidade;
 
         #endregion
@@ -35,11 +34,10 @@ namespace _21193_21207
 
         #region Construtores
 
-        public Medicamento(string nomeMed, TipoMedicamentos t,int idMed, DateTime dv)  
+        public Medicamento(string nomeMed, TipoMedicamentos t, DateTime dv)  
         {
             this.nome = nomeMed;
-            this.tipo = t;
-            this.id = idMed;
+            this.tipo = t;       
             this.dataValidade = dv;
         }
 
@@ -53,18 +51,11 @@ namespace _21193_21207
             get { return nome; }
         }
 
-        public TipoMedicamentos Tipo
+        public TipoMedicamentos TipoMed
         { 
             set { tipo = value; }
             get { return tipo; } 
         }
-
-        public int Id
-        {
-            set { id = value; }
-            get { return id; }
-        }
-
         public DateTime DataValidade
         {
             set { dataValidade = value; }
@@ -74,6 +65,12 @@ namespace _21193_21207
         #endregion
 
         #region Overrides
+
+        public override string ToString()
+        {
+            return("-> Nome: " + this.nome + " - Tipo: " + this.tipo.ToString()+ " - Data de Validade: " + this.DataValidade.ToString("dd/MM/yyyy"));
+        }
+
         #endregion
 
         #region OutrosMetodos

@@ -3,7 +3,7 @@
 *		Copyright (c) 2023 All Rights Reserved
 *	</copyright>
 * 	<author>Mariana e Gonçalo</author>
-*   <date>15/10/2023 03:17:50 PM</date>
+*   <date>15/10/2023 </date>
 *	<description> Descreve um medicamento </description>
 **/
 
@@ -64,9 +64,9 @@ namespace _21193_21207
         }
 
         #endregion
-
+        //Este método é utilizado para agrupar métodos que são sobrescritos de uma classe base
         #region Overrides
-
+        //neste caso, o que faz é representar uma string formatada para apresentar o medicamento, que retorna os respectivos dados*/
         public override string ToString()
         {
             return("-> Nome: " + this.nome + " - Tipo: " + this.tipo.ToString()+ " - Data de Validade: " + this.DataValidade.ToString("dd/MM/yyyy"));

@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+*	<copyright file="Pessoa.cs" company="MarianaIPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Mariana e Gonçalo</author>
+*   <date>31/12/2023</date>
+*	<description> Descreve um medicamento </description>
+**/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

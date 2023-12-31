@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+*	<copyright file="Program.cs" company="MarianaIPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Mariana e Gonçalo</author>
+*   <date>31/12/2023</date>
+*	<description> Main - executa as funções e apresenta o menu  </description>
+**/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +25,7 @@ namespace _21193_21207
             Farmacia farmacia = new Farmacia("Farmacia1", 0);
             Farmaceutico farmaceutico = new Farmaceutico("Pedro Areias", 45, farmacia);
 
-            //Menu inicial
+            //Menu inicial apresentado as seguintes opções
             while (true)
             {
         
@@ -85,7 +94,7 @@ namespace _21193_21207
                     tp = TipoMedicamentos.Analgesico;
                     break;
             }
-            Console.Write("Insira data de validade (p.ex, 01/01/2001): \n"); //REMOVER ENTER DUPLO **********
+            Console.Write("Insira data de validade (p.ex, 01/01/2001): \n"); 
             string userInput = Console.ReadLine();
             //Console.Write("Pressione Enter para continuar");
             if (!DateTime.TryParse(userInput, out DateTime dataValidade))
@@ -96,13 +105,13 @@ namespace _21193_21207
             Console.Write("Medicamento inserido.\n");
 
         }
-
+        //Função chamada pelo farmaceutico que mostra a lista dos medicamentos inseridos.
         static void MostrarMedicamentos(Farmaceutico farmaceutico) 
         {
             farmaceutico.MostrarMedicamentos();
         }
 
-        //*****************************************************************************
+        //Função que remove medicamento, utilizando um método de verificação para confirmar se o medicamento existe.
         static void RemoverMedicamento(Farmaceutico farmaceutico)
         {
             Console.Clear();
@@ -110,7 +119,7 @@ namespace _21193_21207
             String nomeMed = Console.ReadLine();
 
             // Verificar se o medicamento existe na farmácia
-            Medicamento medicamento = farmaceutico._Farmacia.ObterMedicamentoPorNome(nomeMed);
+            Medicamento medicamento = farmaceutico._Farmacia.ObterMedicamentoPorNome(nomeMed); 
 
             if (medicamento == null)
             {

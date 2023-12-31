@@ -63,6 +63,7 @@ namespace _21193_21207
                 Console.WriteLine(med);
            }
         }
+
         //**************************************************************
         //Verifica se existe o medicamento na lista dos medicamentos
         public Medicamento ObterMedicamentoPorNome(string nome)
@@ -93,15 +94,12 @@ namespace _21193_21207
                 }
             }
         }
+        #endregion
 
+        #endregion
 
 
     }
-
-        #endregion
-
-        #endregion
-
- }
+}
     
 

@@ -10,18 +10,13 @@ namespace _21193_21207
     {
         static void Main(string[] args)
         {
-            /* Medicamento m1 = new Medicamento("Paracetamol",TipoMedicamentos.Analgesico,600,new DateTime(2024,05,01));
-             Console.WriteLine("Medicamento 1:\n Nome: {0} - Tipo: {1} - Id: {2} - Data de Validade: {3} \n",m1.NomeMedicamento,m1.Tipo,m1.Id,m1.DataValidade.ToString("dd/MM/yyyy"));
+           
 
-             Medicamento m2 = new Medicamento("Ipobrufeno", TipoMedicamentos.Analgesico,1000,new DateTime(2024,07,07));
-             Console.WriteLine("Medicamento 2:\n Nome: {0} - Tipo: {1} - Id: {2} - Data de Validade: {3} \n", m2.NomeMedicamento, m2.Tipo, m2.Id, m2.DataValidade.ToString("dd/MM/yyyy"));
+            //É criada uma farmácia com um total de medicamentos que podem existir
+            Farmacia farmacia = new Farmacia("Farmacia1", 0);
+            Farmaceutico farmaceutico = new Farmaceutico("Pedro Areias", 45, farmacia);
 
-             Medicamento m3 = new Medicamento("Singulair", TipoMedicamentos.AntiHistaminico,200,new DateTime(2023,12,24));
-             Console.WriteLine("Medicamento 3:\n Nome: {0} - Tipo: {1} - Id: {2} - Data de Validade: {3} \n", m3.NomeMedicamento, m3.Tipo, m3.Id, m3.DataValidade.ToString("dd/MM/yyyy"));*/
-
-
-            Farmacia farmacia = new Farmacia("Farmacia1", 500);
-
+            //Menu inicial
             while (true)
             {
         
@@ -37,13 +32,13 @@ namespace _21193_21207
                 switch (opcao)
                 {
                     case "1":
-                        InserirMedicamento(farmacia);
+                        InserirMedicamento(farmaceutico);
                         break;
                     case "2":
-                        //RemoverMedicamento(Farmacia1);
+                        RemoverMedicamento(farmaceutico);
                         break;
                     case "3":
-                        MostrarMedicamentos(farmacia);
+                        MostrarMedicamentos(farmaceutico);
                         break;
                     case "0":
                         Environment.Exit(0);
@@ -55,14 +50,15 @@ namespace _21193_21207
                 Console.ReadKey();
             }
         }
- 
-        static void InserirMedicamento(Farmacia farmacia)
+        //Função que permite inserir medicamento 
+        static void InserirMedicamento(Farmaceutico farmaceutico)
         {
             Console.Clear();
-            Console.Write("Qual o nome do medicamento? ");
+            Console.Write("Qual o nome do medicamento? \n");
             String nomeMed= Console.ReadLine();
 
             Console.Write("Qual o tipo de medicamento? ");
+            Console.Write("\n0- Analgesico | 1- Antibiotico | 2- AntiInflamatorio | 3-AntiHistaminico \n");
             string sTipoMed= Console.ReadLine();
 
             TipoMedicamentos tp;
@@ -89,21 +85,44 @@ namespace _21193_21207
                     tp = TipoMedicamentos.Analgesico;
                     break;
             }
-            Console.Write("Insira data de validade (p.ex, 01/01/2001): ");
-            string userInput = Console.ReadLine(); 
+            Console.Write("Insira data de validade (p.ex, 01/01/2001): \n"); //REMOVER ENTER DUPLO **********
+            string userInput = Console.ReadLine();
+            //Console.Write("Pressione Enter para continuar");
             if (!DateTime.TryParse(userInput, out DateTime dataValidade))
             {
                 Console.WriteLine("Formato inválido.");
             }
-            farmacia.InserirMedicamento(new Medicamento(nomeMed,tp,dataValidade));
-            
+            farmaceutico.InserirMedicamento(new Medicamento(nomeMed,tp,dataValidade));
+            Console.Write("Medicamento inserido.\n");
 
         }
 
-        static void MostrarMedicamentos(Farmacia farmacia) 
+        static void MostrarMedicamentos(Farmaceutico farmaceutico) 
         {
-            farmacia.MostrarMedicamentos();
+            farmaceutico.MostrarMedicamentos();
         }
-     
+
+        //*****************************************************************************
+        static void RemoverMedicamento(Farmaceutico farmaceutico)
+        {
+            Console.Clear();
+            Console.Write("Qual o nome do medicamento que deseja remover? \n");
+            String nomeMed = Console.ReadLine();
+
+            // Verificar se o medicamento existe na farmácia
+            Medicamento medicamento = farmaceutico._Farmacia.ObterMedicamentoPorNome(nomeMed);
+
+            if (medicamento == null)
+            {
+                Console.WriteLine("Medicamento não encontrado na farmácia.");
+            }
+            else
+            {
+                farmaceutico.RemoverMedicamento(medicamento);
+                Console.WriteLine("Medicamento removido.");
+            }
+        }
+
+
     }
 }

@@ -25,18 +25,23 @@ namespace _21193_21207
             this.idade = idade;
         }
 
+        public Pessoa()
+        {
+            this.nome = "Não atribuído";
+            this.idade = -1;
+        }
+
         #endregion
 
         #region Propriedades
 
-        //Nome da farmácia
-        public string NomePessoa
+        public string Nome
         {
             get { return nome; }
             set { nome = value; }
         }
 
-        public int IdadePessoa
+        public int Idade
         {
             get { return idade; }
             set { idade = value; }

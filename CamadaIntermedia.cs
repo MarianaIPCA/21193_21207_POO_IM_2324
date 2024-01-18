@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace _21193_21207
 {
+    /// <summary>
+    /// Esta camada intermédia tem como objetivo organizar as funções
+    /// </summary>
     public class CamadaIntermedia
     {
         /// <summary>

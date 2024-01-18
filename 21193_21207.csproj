@@ -45,8 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CamadaIntermedia.cs" />
+    <Compile Include="Exceptions\TipoInvalido.cs" />
     <Compile Include="Farmaceutico.cs" />
     <Compile Include="Farmacia.cs" />
+    <Compile Include="IFarmacia.cs" />
     <Compile Include="Medicamento.cs" />
     <Compile Include="Pessoa.cs" />
     <Compile Include="Program.cs" />

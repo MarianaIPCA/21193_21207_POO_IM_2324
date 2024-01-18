@@ -21,12 +21,14 @@ public enum TipoMedicamentos
 
 namespace _21193_21207
 {
+    [Serializable]
     public class Medicamento
     {
         #region Atributos
 
         private string nome;
-        private TipoMedicamentos tipo;        
+        private TipoMedicamentos tipo;
+        [NonSerialized]
         private DateTime dataValidade;
 
         #endregion
@@ -45,7 +47,9 @@ namespace _21193_21207
         #endregion
 
         #region Propriedades 
-        //as propriedades conseguem mostrar a informação privada dos atributos de uma classe
+        /// <summary>
+        /// As propriedades conseguem mostrar a informação privada dos atributos de uma classe
+        /// </summary>
         public string NomeMedicamento
         {
             set { nome = value; }
@@ -64,7 +68,12 @@ namespace _21193_21207
         }
 
         #endregion
-        //Este método é utilizado para agrupar métodos que são sobrescritos de uma classe base
+
+        /// <summary>
+        /// Este método é utilizado para agrupar métodos que são sobrescritos de uma classe base
+        /// </summary>
+        /// <returns></returns>
+        
         #region Overrides
         //neste caso, o que faz é representar uma string formatada para apresentar o medicamento, que retorna os respectivos dados*/
         public override string ToString()

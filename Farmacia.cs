@@ -13,27 +13,38 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 
 namespace _21193_21207
 {
-    public class Farmacia
+    [Serializable]
+    public class Farmacia : IFarmacia
     {
+
         #region Atributos
+        /// <summary>
+        /// Array
+        /// </summary>
+        static Farmacia[] Farmacias = new Farmacia[0];
 
         const int MAX = 500;
         private string nome;
         private List<Medicamento> medicamentos= new List<Medicamento> { }; //lista de medicamentos criada
         private int totMedicamentos; //indica o total de medicamentos existentes
-        private string filePath = "dadosfarmacia.txt"; // nome do ficheiro .txt que vai ficar guardado os medicamentos inseridos
+        private string filePath = "dadosfarmacia.bin"; // nome do ficheiro .bin que vai ficar guardado os medicamentos inseridos
 
         #endregion
 
         #region Metodos
 
         #region Construtores
-
+        /// <summary>
+        /// Construtores da farmácia
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="tot"></param>
         public Farmacia(string nome, int tot)
         {
             this.nome = nome;
@@ -44,33 +55,43 @@ namespace _21193_21207
         {
             this.nome = "Não atribuído";
             this.totMedicamentos = 0;
-        } 
+        }
+
 
         #endregion
 
         #region Propriedades
-
+        /// <summary>
+        /// As propriedades conseguem mostrar a informação privada dos atributos de uma classe
+        /// </summary>
         public string NomeFarmacia
         {
             get { return nome; }
             set { nome = value; }
         }
+
+        
         #endregion
 
         #region Overrides
         #endregion
 
         #region Outros Metodos
-
-        //Função que insere os medicamentos novos e os guarda no ficheiro de texto criado.
+        /// <summary>
+        /// Função que insere os medicamentos novos e os guarda no ficheiro de texto criado.
+        /// </summary>
+        /// <param name="medicamento"></param>
+       
         public void InserirMedicamento(Medicamento medicamento)
         {
             this.medicamentos.Add(medicamento);
             this.totMedicamentos++;
-            this.FicheiroMedicamentos();
+            GuardarDados(filePath,this); /****/
         }
-
-        //Função que mostra a lista dos medicamentos já inseridos na lista medicamentos
+        /// <summary>
+        /// Função que mostra a lista dos medicamentos já inseridos na lista medicamentos
+        /// </summary>
+     
         public void MostrarMedicamentos()
         {
            foreach(Medicamento med in medicamentos)
@@ -78,39 +99,76 @@ namespace _21193_21207
                 Console.WriteLine(med);
            }
         }
+        /// <summary>
+        /// Verifica se existe o medicamento na lista dos medicamentos
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns></returns>
 
-        //Verifica se existe o medicamento na lista dos medicamentos
         public Medicamento ObterMedicamentoPorNome(string nome)
         { 
             //Seja o nome do medicamento com letras Maiusculas ou Minusculas, ele vai encontrar o mesmo.
             return medicamentos.FirstOrDefault(m => string.Equals(m.NomeMedicamento, nome, StringComparison.OrdinalIgnoreCase));  
         }
 
-        //Função que remove os medicamentos existentes na lista medicamentos
+        /// <summary>
+        /// Função que remove os medicamentos existentes na lista medicamentos
+        /// </summary>
+        /// <param name="medicamento"></param>
         public void RemoverMedicamento(Medicamento medicamento)
         {
             medicamentos.Remove(medicamento);
+            GuardarDados(filePath,this); /****/
         }
-
-        //Função que exporta todos os medicamentos para um ficheiro de texto com os respectivos dados 
-        void FicheiroMedicamentos()
+        /// <summary>
+        /// Guarda os dados em um ficheiro binário
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="farmacia"></param>
+        static void GuardarDados(string filePath,Farmacia farmacia)
         {
-            using (StreamWriter writer = new StreamWriter(filePath))
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            try
             {
-                writer.WriteLine($"Nome: {this.NomeFarmacia}");
-
-                writer.WriteLine($"Total de Medicamentos: {totMedicamentos}");
-
-                writer.WriteLine("Medicamentos:");
-                writer.WriteLine("Nome      | Tipo      | Data de Validade");
-                foreach (Medicamento medicamento in this.medicamentos)
+                using (FileStream fs = new FileStream(filePath, FileMode.Create))
                 {
-                    writer.WriteLine($"-{medicamento.NomeMedicamento} - {medicamento.TipoMed} - {medicamento.DataValidade.ToString("dd/MM/yyyy")}");
+                    formatter.Serialize(fs, farmacia);
                 }
+
+                Console.WriteLine("Dados guardados com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocorreu um erro: " + ex.Message);
             }
         }
-        #endregion
+        /// <summary>
+        /// Lê os dados de um ficheiro binário
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        static Farmacia LerDados(string filePath)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
 
+            try
+            {
+                using (FileStream fs = new FileStream(filePath, FileMode.Open))
+                {
+                    Farmacia deserializedObject = (Farmacia)formatter.Deserialize(fs);
+                    return deserializedObject;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocorreu um erro: " + ex.Message);
+                return null;
+            }
+        }
+        
+        #endregion
+  
         #endregion
 
     }

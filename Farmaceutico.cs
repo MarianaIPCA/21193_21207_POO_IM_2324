@@ -12,13 +12,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace _21193_21207
 {
+    /// <summary>
+    /// Classe do Farmaceutico que herda a classe pessoa
+    /// </summary>
     public class Farmaceutico : Pessoa
     {
         #region Atributos
-
+        /// <summary>
+        /// Um atributo que representa a associação do farmacêutico com uma instância da classe Farmacia.
+        /// </summary>
         Farmacia farmacia;
 
         #endregion
@@ -32,12 +38,16 @@ namespace _21193_21207
             this.Idade = idade;
             this.farmacia = farmacia;
         }
+
         #endregion
 
         #region Propriedades 
 
-        //Como já existe uma classe chamada Farmacia, dá-mos o nome de '_Farmacia', facilita o acesso à variável pretendida
-        //Utilizada na função de remover medicamento apartir da classe Farmaceutico
+        /// <summary>
+        /// Como já existe uma classe chamada Farmacia, dá-mos o nome de '_Farmacia', facilita o acesso à variável pretendida
+        /// Utilizada na função de remover medicamento apartir da classe Farmaceutico
+        /// Uma propriedade que permite acessar e modificar a instância da classe Farmacia associada ao farmacêutico.
+        /// </summary>
         public Farmacia _Farmacia
         {
             get { return farmacia; }
@@ -47,7 +57,12 @@ namespace _21193_21207
         #endregion
 
         #region Outros métodos
-        //Funções que são chamadas apartir da Farmácia para o Farmaceutico as puder utilizar
+
+        /// <summary>
+        /// Funções que são chamadas apartir da Farmácia para o Farmaceutico as puder utilizar
+        /// </summary>
+        /// <param name="medicamento"></param>
+ 
         public void InserirMedicamento(Medicamento medicamento)
         {
             this.farmacia.InserirMedicamento(medicamento);
@@ -60,6 +75,7 @@ namespace _21193_21207
         {
             this.farmacia.MostrarMedicamentos();
         }
+
         #endregion
 
         #endregion

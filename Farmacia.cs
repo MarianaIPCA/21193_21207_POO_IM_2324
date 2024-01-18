@@ -7,8 +7,6 @@
 *	<description> Descreve um medicamento </description>
 **/
 
-
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +17,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace _21193_21207
 {
+    
+
     [Serializable]
     public class Farmacia : IFarmacia
     {

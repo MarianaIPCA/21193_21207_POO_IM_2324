@@ -4,7 +4,7 @@
 *.js linguist-detectable=false  
 *.html linguist-detectable=false  
 *.xml linguist-detectable=false 
-*.TeX linguist-detectable=false 
+*.text linguist-detectable=false 
 ###############################################################################
 # Set default behavior to automatically normalize line endings.
 ###############################################################################

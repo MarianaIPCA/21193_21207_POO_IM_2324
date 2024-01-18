@@ -70,7 +70,6 @@ namespace _21193_21207
             set { nome = value; }
         }
 
-        
         #endregion
 
         #region Overrides

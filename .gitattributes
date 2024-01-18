@@ -4,6 +4,7 @@
 ###############################################################################
 * text=auto
 * .TeX linguist-detectable=false 
+* .csharp linguist-detectable=true
 ###############################################################################
 # Set default behavior for command prompt diff.
 #

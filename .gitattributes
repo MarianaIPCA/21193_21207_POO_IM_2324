@@ -3,7 +3,6 @@
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
-*.TeX linguist-detectable=false 
 *.csharp linguist-detectable=true
 ###############################################################################
 # Set default behavior for command prompt diff.

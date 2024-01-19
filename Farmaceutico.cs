@@ -32,6 +32,12 @@ namespace _21193_21207
         #region Metodos
 
         #region Construtores
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="idade"></param>
+        /// <param name="farmacia"></param>
         public Farmaceutico(string nome, int idade, Farmacia farmacia)
         {
             this.Nome = nome;

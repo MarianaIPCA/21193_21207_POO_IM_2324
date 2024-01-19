@@ -25,9 +25,9 @@ namespace _21193_21207
 
         #region Atributos
         /// <summary>
-        /// Array
+        /// Atributos
         /// </summary>
-        static Farmacia[] Farmacias = new Farmacia[0];
+        static Farmacia[] Farmacias = new Farmacia[0]; //array - não está a ser utilizado
 
         private static Farmacia instanciaUnica;
         const int MAX = 500;
@@ -58,7 +58,10 @@ namespace _21193_21207
             this.totMedicamentos = 0;
         }
 
-
+        /// <summary>
+        /// Instância da farmácia criada 
+        /// </summary>
+        /// <returns></returns>
         public static Farmacia ObterInstanciaUnica()
         {
             if (instanciaUnica == null)
@@ -68,8 +71,6 @@ namespace _21193_21207
 
             return instanciaUnica;
         }
-
-
 
         #endregion
 
@@ -103,14 +104,21 @@ namespace _21193_21207
         /// <summary>
         /// Função que mostra a lista dos medicamentos já inseridos na lista medicamentos
         /// </summary>
-     
         public void MostrarMedicamentos()
         {
-           foreach(Medicamento med in medicamentos)
-           {
-                Console.WriteLine(med);
-           }
+            if (medicamentos.Count == 0)
+            {
+                Console.WriteLine("Nenhum medicamento encontrado.");
+            }
+            else
+            {
+                foreach (Medicamento med in medicamentos)
+                {
+                    Console.WriteLine(med);
+                }
+            }
         }
+
         /// <summary>
         /// Verifica se existe o medicamento na lista dos medicamentos
         /// </summary>

@@ -66,7 +66,6 @@ namespace _21193_21207
             set { dataValidade = value; }
             get { return dataValidade; }
         }
-
         #endregion
 
         /// <summary>

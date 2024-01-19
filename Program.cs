@@ -26,8 +26,9 @@ namespace _21193_21207
             /// <summary> 
             /// É criada uma farmácia com um total de medicamentos que podem existir
             /// </summary>
-            Farmacia farmacia = new Farmacia("Farmacia1", 0);
-            Farmaceutico farmaceutico = new Farmaceutico("Pedro Areias", 45, farmacia);
+            Farmacia farmaciaUnica = Farmacia.ObterInstanciaUnica();
+            //Farmacia farmacia = new Farmacia("Farmacia1", 0);
+            Farmaceutico farmaceutico = new Farmaceutico("Pedro Areias", 45, farmaciaUnica);
            
 
             /// <summary> 

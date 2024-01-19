@@ -29,6 +29,7 @@ namespace _21193_21207
         /// </summary>
         static Farmacia[] Farmacias = new Farmacia[0];
 
+        private static Farmacia instanciaUnica;
         const int MAX = 500;
         private string nome;
         private List<Medicamento> medicamentos= new List<Medicamento> { }; //lista de medicamentos criada
@@ -56,6 +57,18 @@ namespace _21193_21207
             this.nome = "Não atribuído";
             this.totMedicamentos = 0;
         }
+
+
+        public static Farmacia ObterInstanciaUnica()
+        {
+            if (instanciaUnica == null)
+            {
+                instanciaUnica = new Farmacia("Farmacia1", 0);
+            }
+
+            return instanciaUnica;
+        }
+
 
 
         #endregion

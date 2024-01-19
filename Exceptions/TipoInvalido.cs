@@ -11,7 +11,6 @@ namespace _21193_21207.Exceptions
         public TipoInvalido(string message) : base(message)
         {
 
-
         }
 
     }
